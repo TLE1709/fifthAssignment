@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, StatusBar, Button } from 'react-native';
+import CountContextProvider from './src/count';
+import { useCountContext } from './src/count';
+import Homepage from './src/Homepage';
 
 export default function App() {
+
+
+  const CountContext= useCountContext();
+  console.log(CountContext);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    <CountContextProvider>
+    <Homepage>
+
+    </Homepage>
+    </CountContextProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
